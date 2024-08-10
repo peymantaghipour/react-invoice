@@ -7,8 +7,8 @@ import persian_fa from "react-date-object/locales/persian_fa";
 const DatePickerInput=({model,id,description})=>{
 
     const handleChange=(value)=>{
-       
-        model[id]=value;
+        model[id]=value.year+'/'+('0'+value.month).slice(-2)+'/'+('0'+value.day).slice(-2);
+        // model[id]=value;
     }
     return(
         <>
@@ -16,7 +16,7 @@ const DatePickerInput=({model,id,description})=>{
         <DatePicker style={{ border: "1px solid #ced4da",
         borderRadius: "5px",padding: "10px",color: "#495057",width:"413px",
         height:"40px",backgroundClip:'padding-box'}}
-        value={moment('1400/01/01 00:00', 'jYYYY/jM/jD HH:mm')} onChange={handleChange}
+        value={moment(model[id]+'00:00', 'jYYYY/jM/jD HH:mm')} onChange={handleChange}
         calendar={persian} locale={persian_fa} calendarPosition="bottom-right" />
         </>
     )
