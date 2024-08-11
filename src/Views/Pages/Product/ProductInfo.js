@@ -1,14 +1,15 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap"
-import { ProductContex } from "../../../Stores/Contexts/ProductContex";
 import {TextInput,NumberInput, DatePickerInput} from '../Components/Form/Index'
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import productViewService from "../../../ViewService/productViewService";
 
 
 
-const ProductInfo=()=>{
+const ProductInfo=(props)=>{
 
-    const{RegisterProducts,productModel,FindProduct,NewProduct}=useContext(ProductContex);
+    const{RegisterProducts,productModel,FindProduct,NewProduct}=props;
 
     const {productid}=useParams();
 
@@ -56,7 +57,8 @@ const ProductInfo=()=>{
                     </Col>
                 </Row>
                 <Row>
-                    <Col className="mt-4">
+                    <Col className="mt-4 btn-group">
+                    <   Button variant="danger" style={{float:"left"}} onClick={()=>{}} className="btn-block">ثبت جدید</Button>
                         <Button variant="success" style={{float:"left"}} onClick={RegisterProducts} className="btn-block">ثبت</Button>
                     </Col>
                 </Row>
@@ -67,4 +69,10 @@ const ProductInfo=()=>{
         </Row>
     </Container>)
 }
-export default ProductInfo;
+const mapStateToProp=(state)=>{
+    return{
+        productModel:state.product.productModel
+    }
+}
+
+export default connect(mapStateToProp,productViewService)(ProductInfo);

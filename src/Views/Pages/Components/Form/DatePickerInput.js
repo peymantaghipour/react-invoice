@@ -2,6 +2,7 @@ import moment from "moment-jalaali";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+
 const DatePickerInput = ({ model, id, description }) => {
   const handleChange = (value) => {
     model[id] =
@@ -43,7 +44,6 @@ const DatePickerInput = ({ model, id, description }) => {
           height: "40px",
           backgroundClip: "padding-box",
         }}
-        // value={moment(model[id] + "00:00", "jYYYY/jM/jD HH:mm")}
         value={getPersianDate(model[id])}
         onChange={handleChange}
         calendar={persian}

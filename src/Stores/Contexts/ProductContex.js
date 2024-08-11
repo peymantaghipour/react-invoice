@@ -24,7 +24,6 @@ const ProductProvider=({children})=>{
         let list=await productService.searchAllProducts();
        dispatch({type:"setProductListModel",payload:list});
        
-       
     }
     const SearchProducts=async ()=>{
       
