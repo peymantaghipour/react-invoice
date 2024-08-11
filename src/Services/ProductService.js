@@ -12,6 +12,7 @@ export default class ProductService
     {
        return Get(getAllProductListAction);
     }
+    
     searchProducts(productFilter)
     {
         return Get(getSearchProductListAction,productFilter);

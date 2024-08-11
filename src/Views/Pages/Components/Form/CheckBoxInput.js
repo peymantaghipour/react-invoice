@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const CheckBoxInput=({model,id,description})=>{
 
-    const[check,setCheck]=useState(false);
+    const[check,setCheck]=useState(model[id]);
 
     useEffect(()=>{
         setCheck(model[id]);

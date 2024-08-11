@@ -13,9 +13,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import "react-datepicker/dist/react-datepicker.css";
 import "react-multi-date-picker/styles/colors/teal.css"
+import { Provider } from 'react-redux';
+import MainStore from './Stores/Redux/MainStore';
 
 function App() {
   return (
+    <Provider store={MainStore}>
     <ProductProvider>
       <ToastContainer/>
    <BrowserRouter>
@@ -31,6 +34,7 @@ function App() {
    </Routes>
    </BrowserRouter>
    </ProductProvider>
+   </Provider>
   );
 }
 
